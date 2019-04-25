@@ -1,6 +1,6 @@
 {
     "name": "tommyys/laravel_template",
-    "description": "Default laravel template for Axstarzy Dot Com that includes the most used libraries and plugins",
+    "description": "Default Laravel template for Axstarzy Dot Com that includes the most used libraries, plugins, helper classes, and migrations",
     "authors": [
         {
             "name": "Tommy Lee",
@@ -17,15 +17,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Collective\\Html\\HtmlServiceProvider",
-                "Intervention\\Image\\ImageServiceProvider",
                 "Axstarzy\\LaravelTemplate\\LaravelTemplateServiceProvider"
-            ],
-            "aliases": {
-                "Form": "Collective\\Html\\FormFacade",
-                "Html": "Collective\\Html\\HtmlFacade",
-                "Image": "Intervention\\Image\\Facades\\Image"
-            }
+            ]
         }
     },
     "autoload": {

@@ -42,9 +42,9 @@ class ActionLog extends Model
     }
 
     public static function check30sGap($request){
-        // if(env('APP_ENV') == "local"){
-        //     return true;
-        // }
+        if(env('APP_ENV') == "local"){
+            return true;
+        }
 
         $ip = $request->ip();
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {

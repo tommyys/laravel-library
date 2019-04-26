@@ -1,6 +1,6 @@
-# Axstarzy Laravel Template
+# Axstarzy Laravel Library
 
-Default Laravel template for Axstarzy Dot Com that includes the most used libraries, plugins, helper classes, and migrations
+Default Laravel library for Axstarzy Dot Com that includes the most used libraries, plugins, helper classes, and migrations
 
 ## Getting Started
 
@@ -51,10 +51,46 @@ composer require tommyys/laravel_template
       'Form' => Collective\Html\FormFacade::class,
       'Html' => Collective\Html\HtmlFacade::class,
       'Image' => Intervention\Image\Facades\Image::class,
-      'ActionLog' => Axstarzy\LaravelTemplate\ActionLog::class,
-      'ErrorLog' => Axstarzy\LaravelTemplate\ErrorLog::class,
     // ...
   ],
 ```
 
 4. Run `php artisan migrate` to migrate the required tables
+
+### Using the library
+
+To use the included classes, include the namespace on top of your controller/command.
+
+```php
+...
+use Axstarzy\LaravelTemplate\ActionLog;
+use Axstarzy\LaravelTemplate\ErrorLog;
+...
+```
+
+Below are the classes that are available:
+- ActionLog
+- ErrorLog
+
+To use the included helper class, add this line into your project's `composer.json`.
+
+```json
+"autoload": {
+        ...
+        "files": [
+            "vendor/tommyys/laravel_template/src/Helper.php"
+        ]
+        ...
+    },
+```
+
+Then you may use it normally like a helper class in your controller/commands.
+
+```php
+class TestController extends Controller
+{
+  public function foo(){
+    sqlLog(ActionLog::where('user_id', 1));
+  }
+}
+```

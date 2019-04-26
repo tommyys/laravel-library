@@ -36,6 +36,21 @@ if (! function_exists('trans')) {
     }
 }
 
+if (! function_exists('sqlLog')) {
+
+    function sqlLog($query){
+        $sql = $query->toSql();
+        $bindings = $query->getBindings();
+        foreach($bindings as $value){
+            $pos = strpos($sql, "?");
+            if ($pos !== false) {
+                $sql = substr_replace($sql, '"'.$value.'"', $pos, strlen("?"));
+            }
+        }
+        Log::info($sql);
+    }
+}
+
 if (! function_exists('getStatusLabel')) {
     function getStatusLabel($status){
         switch($status){

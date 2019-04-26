@@ -26,9 +26,6 @@
         ],
         "psr-4": {
             "Axstarzy\\LaravelTemplate\\": "src/"
-        },
-        "files": [
-            "Helper.php"
-        ]
+        }
     }
 }

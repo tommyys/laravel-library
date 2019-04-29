@@ -55,7 +55,19 @@ composer require tommyys/laravel_template
   ],
 ```
 
-4. Run `php artisan migrate` to migrate the required tables
+4. To use the included helper class, add this line into your project's `composer.json`.
+
+```json
+"autoload": {
+        ...
+        "files": [
+            "vendor/tommyys/laravel_template/src/Helper.php"
+        ]
+        ...
+    },
+```
+
+5. Run `php artisan migrate` to migrate the required tables
 
 ### Using the library
 
@@ -72,18 +84,6 @@ Below are the classes that are available:
 - ActionLog
 - ErrorLog
 
-To use the included helper class, add this line into your project's `composer.json`.
-
-```json
-"autoload": {
-        ...
-        "files": [
-            "vendor/tommyys/laravel_template/src/Helper.php"
-        ]
-        ...
-    },
-```
-
 Then you may use it normally like a helper class in your controller/commands.
 
 ```php
@@ -93,4 +93,24 @@ class TestController extends Controller
     sqlLog(ActionLog::where('user_id', 1));
   }
 }
+```
+
+####Helper
+
+This package includes an updated `trans` function, however at the moment it is not possible to autoload it during runtime. Therefore the custom `trans` function is now named `transt`.
+
+Just use `transt` like you normally would to `trans`.
+
+Example:
+```php
+<span class="m-menu__link-text">
+  {{transt('string.Stock')}}
+</span>
+```
+
+Output:
+```php
+<span class="m-menu__link-text">
+  Stock
+</span>
 ```

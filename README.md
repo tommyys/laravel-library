@@ -95,7 +95,7 @@ class TestController extends Controller
 }
 ```
 
-####Helper
+#### Helper
 
 This package includes an updated `trans` function, however at the moment it is not possible to autoload it during runtime. Therefore the custom `trans` function is now named `transt`.
 

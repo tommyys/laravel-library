@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('trans')) {
+if (! function_exists('transt')) {
     /**
      * Translate the given message.
      *
@@ -10,7 +10,7 @@ if (! function_exists('trans')) {
      * @param  string  $locale
      * @return string
      */
-    function trans($id = null, $parameters = [], $domain = 'messages', $locale = null)
+    function transt($id = null, $parameters = [], $domain = 'messages', $locale = null)
     {
         if (is_null($id)) {
             return app('translator');

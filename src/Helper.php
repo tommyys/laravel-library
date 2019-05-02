@@ -1,38 +1,37 @@
 <?php
 
-if (! function_exists('transt')) {
+if (! function_exists('trans')) {
     /**
      * Translate the given message.
      *
-     * @param  string  $id
-     * @param  array   $parameters
-     * @param  string  $domain
+     * @param  string  $key
+     * @param  array   $replace
      * @param  string  $locale
-     * @return string
+     * @return \Illuminate\Contracts\Translation\Translator|string|array|null
      */
-    function transt($id = null, $parameters = [], $domain = 'messages', $locale = null)
+    function trans($key = null, $replace = [], $locale = null)
     {
-        if (is_null($id)) {
+        if (is_null($key)) {
             return app('translator');
         }
         
-        if(!Lang::has($id)){
-            $stringParts = explode(".", $id);
+        if(!Lang::has($key)){
+            $stringParts = explode(".", $key);
             switch($stringParts[0]){
                 case "msg":
-                    return str_replace("msg.", "", $id);
+                    return str_replace("msg.", "", $key);
                 break;
                 case "description":
-                    return str_replace("description.", "", $id);
+                    return str_replace("description.", "", $key);
                 break;
                 default:
                 case "string":
-                    return str_replace("string.", "", $id);
+                    return str_replace("string.", "", $key);
                 break;
             }
         }
 
-        return app('translator')->trans($id, $parameters, $domain, $locale);
+        return app('translator')->trans($key, $replace, $locale);
     }
 }
 

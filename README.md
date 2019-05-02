@@ -12,6 +12,8 @@ This package is meant for Laravel Framework 5.5 LTS and above.
 - guzzlehttp/guzzle^6.3
 - intervention/image^2.4
 - laravelcollective/html^5.4.0
+- funkjedi/composer-include-files^1.0,
+
 
 ##### Helper classes included:
 - Action Log
@@ -58,16 +60,17 @@ composer require tommyys/laravel_template
 4. To use the included helper class, add this line into your project's `composer.json`.
 
 ```json
-"autoload": {
+"extra": {
         ...
-        "files": [
+        "include_files": [
             "vendor/tommyys/laravel_template/src/Helper.php"
         ]
-        ...
     },
 ```
 
-5. Run `php artisan migrate` to migrate the required tables
+5. Run `composer dumpautoload` 
+
+6. Run `php artisan migrate` to migrate the required tables
 
 ### Using the library
 
@@ -97,14 +100,12 @@ class TestController extends Controller
 
 #### Helper
 
-This package includes an updated `trans` function, however at the moment it is not possible to autoload it during runtime. Therefore the custom `trans` function is now named `transt`.
-
-Just use `transt` like you normally would to `trans`.
+This package includes an updated `trans` function, you must have added `vendor/tommyys/laravel_template/src/Helper.php` to `composer.json` to have it working.
 
 Example:
 ```php
 <span class="m-menu__link-text">
-  {{transt('string.Stock')}}
+  {{trans('string.Stock')}}
 </span>
 ```
 

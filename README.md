@@ -100,6 +100,7 @@ class TestController extends Controller
 
 #### Helper
 
+##### trans()
 This package includes an updated `trans` function, you must have added `vendor/tommyys/laravel_template/src/Helper.php` to `composer.json` to have it working.
 
 Example:
@@ -114,4 +115,23 @@ Output:
 <span class="m-menu__link-text">
   Stock
 </span>
+```
+
+##### output()
+This function will run `echo` and `Log::info` together. 
+
+##### sqlLog()
+Accepts model/eloquent object as input. This helper function will form a full sql query including parameters to ease troubleshooting in MYSQL.
+
+Example:
+
+```php
+$userID = 123;
+sqlLog(ActionLog::where('user_id', $userID));
+```
+
+Output:
+
+```sql
+select * from `action_log` where `user_id` = "123"
 ```

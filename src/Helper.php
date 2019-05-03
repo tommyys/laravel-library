@@ -36,7 +36,12 @@ if (! function_exists('trans')) {
 }
 
 if (! function_exists('sqlLog')) {
-
+    /**
+     * Translate the given message.
+     *
+     * @param  object  $query
+     * @return Log
+     */
     function sqlLog($query){
         $sql = $query->toSql();
         $bindings = $query->getBindings();
@@ -73,6 +78,13 @@ if (! function_exists('getStatusLabel')) {
             break;
         }
         return $value;
+    }
+}
+
+if (! function_exists('output')) {
+    function output($string){
+        Log::info($string);
+        echo $string."\n";
     }
 }
 

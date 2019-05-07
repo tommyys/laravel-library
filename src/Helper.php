@@ -88,3 +88,17 @@ if (! function_exists('output')) {
     }
 }
 
+if (! function_exists('implode_recur')) {
+    function implode_recur($separator, $arrayvar) {
+        $output = "";
+        foreach ($arrayvar as $key => $value){
+            if (is_array ($value)) {
+                $output .= $key.'=>'.implode_recur($separator, $value); // Recursive array 
+            } else{
+                $output .= $key.'=>'.$value.',';
+            }                   
+        }
+
+        return "[".$output."]";
+    }
+}

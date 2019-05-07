@@ -89,11 +89,11 @@ if (! function_exists('output')) {
 }
 
 if (! function_exists('implode_recur')) {
-    function implode_recur($separator, $arrayvar) {
+    function implode_recur($arrayvar) {
         $output = "";
         foreach ($arrayvar as $key => $value){
             if (is_array ($value)) {
-                $output .= $key.'=>'.implode_recur($separator, $value); // Recursive array 
+                $output .= $key.'=>'.implode_recur($value); // Recursive array 
             } else{
                 $output .= $key.'=>'.$value.',';
             }                   

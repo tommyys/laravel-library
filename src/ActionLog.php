@@ -33,12 +33,16 @@ class ActionLog extends Model
             $input .= $keyname.'=>'.$value.',';
         }
 
-        self::create([
+        $log = self::create([
             'ip'=> $ip,
             'user_agent' => $useragent,
             'function' => $request->url(),
             'input' => $input,
         ]);
+        if(auth()->check()){
+            $log->update(['user_id' => auth()->user()->id]);
+        }
+
     }
 
     public static function check30sGap($request){

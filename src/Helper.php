@@ -59,22 +59,16 @@ if (! function_exists('getStatusLabel')) {
     function getStatusLabel($status){
         switch($status){
             case 0:
-                $value = 'label-default';
+                $value = 'default';
             break;
             case 1:
-                $value = 'label-success';
+                $value = 'success';
             break;
             case 2:
-                $value = 'label-danger';
-            break;
-            case 4:
-                $value = 'label-danger faa-flash animated';
-            break;
-            case 5:
-                $value = 'label-danger faa-flash animated';
+                $value = 'danger';
             break;
             default:
-                $value = 'label-default';
+                $value = 'default';
             break;
         }
         return $value;

@@ -80,12 +80,14 @@ To use the included classes, include the namespace on top of your controller/com
 ...
 use Axstarzy\LaravelTemplate\ActionLog;
 use Axstarzy\LaravelTemplate\ErrorLog;
+use Axstarzy\LaravelTemplate\Telegram;
 ...
 ```
 
 Below are the classes that are available:
 - ActionLog
 - ErrorLog
+- Telegram
 
 Then you may use it normally like a helper class in your controller/commands.
 

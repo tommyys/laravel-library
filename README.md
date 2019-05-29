@@ -91,6 +91,12 @@ Below are the classes that are available:
 
 Then you may use it normally like a helper class in your controller/commands.
 
+To setup Telegram, add these variables to your `.env` file
+```
+TELEGRAM_NOTI_GROUP=-123123123
+TELEGRAM_BOT_ID=botid
+``` 
+
 ```php
 class TestController extends Controller
 {

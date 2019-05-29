@@ -18,7 +18,7 @@ class Telegram {
             $chatID = env('TELEGRAM_NOTI_GROUP');
         }
         // if env not production dont send
-        if(!Setting::env('production')){
+        if(env('APP_ENV') != "production"){
             return false;
         };
 
@@ -35,7 +35,7 @@ class Telegram {
             $chatID = env('TELEGRAM_NOTI_GROUP');
         }
         // if env not production dont send
-        if(!Setting::env('production')){
+        if(env('APP_ENV') != "production"){
             return false;
         };
 

@@ -108,6 +108,9 @@ class TestController extends Controller
 
 #### Helper
 
+##### env()
+This package will override the build in `env()` of Laravel. 
+
 ##### trans()
 This package includes an updated `trans` function, you must have added `vendor/tommyys/laravel_template/src/Helper.php` to `composer.json` to have it working.
 

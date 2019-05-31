@@ -35,6 +35,26 @@ if (! function_exists('trans')) {
     }
 }
 
+if (! function_exists('env')) {
+    function env($name, $default=null){
+        $value = $default;
+        $fn = fopen(base_path('.env'),"r");
+        while(! feof($fn))  {
+            $result = fgets($fn);
+            if(trim($result)){
+                $var = explode("=", trim($result));
+                $key = $var[0];
+                $val = $var[1];
+                if($key == $name){
+                    $value = $val;
+                }
+            }
+        }
+        fclose($fn);
+        return $value;
+    }
+}
+
 if (! function_exists('sqlLog')) {
     /**
      * Translate the given message.

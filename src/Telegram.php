@@ -3,7 +3,7 @@
 // use this link to get your chat id
 // https://api.telegram.org/bot677341098:AAEX6-kv_4gC8y-cvuFcwZKA6mbzjBXj3eU/getUpdates
 
-namespace Axstarzy\LaravelTemplate;
+namespace Axstarzy\LaravelLibrary;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;

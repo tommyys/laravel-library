@@ -1,6 +1,6 @@
 <?php
 
-namespace Axstarzy\LaravelTemplate;
+namespace Axstarzy\LaravelLibrary;
 
 use Illuminate\Database\Eloquent\Model;
 

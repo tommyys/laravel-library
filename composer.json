@@ -1,6 +1,6 @@
 {
     "name": "tommyys/laravel_library",
-    "description": "Default Laravel template for Axstarzy Dot Com that includes the most used libraries, plugins, helper classes, and migrations",
+    "description": "Default Laravel library for Axstarzy Dot Com that includes the most used libraries, plugins, helper classes, and migrations",
     "authors": [
         {
             "name": "Tommy Lee",
@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Axstarzy\\LaravelTemplate\\LaravelTemplateServiceProvider"
+                "Axstarzy\\LaravelLibrary\\LaravelLibraryServiceProvider"
             ]
         }
     },
@@ -26,7 +26,7 @@
         "classmap": [
         ],
         "psr-4": {
-            "Axstarzy\\LaravelTemplate\\": "src/"
+            "Axstarzy\\LaravelLibrary\\": "src/"
         }
     }
 }

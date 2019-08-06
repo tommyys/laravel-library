@@ -78,9 +78,9 @@ To use the included classes, include the namespace on top of your controller/com
 
 ```php
 ...
-use Axstarzy\LaravelTemplate\ActionLog;
-use Axstarzy\LaravelTemplate\ErrorLog;
-use Axstarzy\LaravelTemplate\Telegram;
+use Axstarzy\LaravelLibrary\ActionLog;
+use Axstarzy\LaravelLibrary\ErrorLog;
+use Axstarzy\LaravelLibrary\Telegram;
 ...
 ```
 

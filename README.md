@@ -33,7 +33,7 @@ This package is meant for Laravel Framework 5.5 LTS and above.
 
 1. Install the package in your project
 ```
-composer require tommyys/laravel_template
+composer require tommyys/laravel_library
 ```
 
 2. Add your providers to the `providers` array of `config/app.php`:
@@ -63,7 +63,7 @@ composer require tommyys/laravel_template
 "extra": {
         ...
         "include_files": [
-            "vendor/tommyys/laravel_template/src/Helper.php"
+            "vendor/tommyys/laravel_library/src/Helper.php"
         ]
     },
 ```
@@ -112,7 +112,7 @@ class TestController extends Controller
 This package will override the build in `env()` of Laravel. 
 
 ##### trans()
-This package includes an updated `trans` function, you must have added `vendor/tommyys/laravel_template/src/Helper.php` to `composer.json` to have it working.
+This package includes an updated `trans` function, you must have added `vendor/tommyys/laravel_library/src/Helper.php` to `composer.json` to have it working.
 
 Example:
 ```php

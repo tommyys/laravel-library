@@ -12,7 +12,7 @@ class ActionLog extends Model
 
     protected $guarded = [];
 
-    public static function createRecord($request){
+    public static function createRecord($request, $user=null){
         $input = "";
 
         $useragent = $request->server('HTTP_USER_AGENT');
@@ -35,9 +35,13 @@ class ActionLog extends Model
             'input' => $input,
         ]);
         if(auth()->check()){
-            $log->update(['user_id' => auth()->user()->id]);
+            if(!$user){
+                $user = auth()->user();
+            }
+            $log->update(['user_id' => $user->id]);
         }
 
+        return $log;
     }
 
     public static function check30sGap($request){

@@ -91,6 +91,14 @@ Below are the classes that are available:
 
 Then you may use it normally like a helper class in your controller/commands.
 
+```php
+//create new action log
+$log = ActionLog::createRecord($request, $user); //$user is optional, if variable not passed it will use auth()->user() by default
+
+//check time gap between last request
+$gap = ActionLog::check30sGap($request);
+```
+
 To setup Telegram, add these variables to your `.env` file
 ```
 TELEGRAM_NOTI_GROUP=-123123123
@@ -107,9 +115,6 @@ class TestController extends Controller
 ```
 
 #### Helper
-
-##### env()
-This package will override the build in `env()` of Laravel. 
 
 ##### trans()
 This package includes an updated `trans` function, you must have added `vendor/tommyys/laravel_library/src/Helper.php` to `composer.json` to have it working.

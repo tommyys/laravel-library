@@ -12,7 +12,7 @@ class ActionLog extends Model
 
     protected $guarded = [];
 
-    public static function createRecord($request, $user=null){
+    public static function createRecord($request){
 
         $useragent = $request->server('HTTP_USER_AGENT');
         if(empty($useragent)) {
@@ -26,10 +26,7 @@ class ActionLog extends Model
         }
 
         $input = '';
-        if(array_key_exists('user',$request->inputs)){
-            $user_id = $request->inputs['user']->id;
-        }
-        foreach($request->inputs as $keyname=>$value){
+        foreach($request->all() as $keyname=>$value){
             if(is_array($value)){
                 $value = implode(" || ", $value);
             }
@@ -42,13 +39,6 @@ class ActionLog extends Model
             'function' => $request->url(),
             'input' => $input,
         ]);
-        if(auth()->check()){
-            if(!$user){
-                $user = auth()->user();
-            }
-            $log->update(['user_id' => $user->id]);
-        }
-
         return $log;
     }
 

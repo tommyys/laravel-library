@@ -26,7 +26,16 @@ class ActionLog extends Model
             $ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         }
 
-        $input = implode_recur($request->all());
+        $input = '';
+        if(array_key_exists('user',$inputs)){
+            $user_id = $inputs['user']->id;
+        }
+        foreach($inputs as $keyname=>$value){
+            if(is_array($value)){
+                $value = implode(" || ", $value);
+            }
+            $input .= $keyname.'=>'.$value.',';
+        }
 
         $log = self::create([
             'ip'=> $ip,

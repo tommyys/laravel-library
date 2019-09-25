@@ -15,7 +15,7 @@ class CreateErrorLogTable extends Migration
     {
         Schema::create('error_log', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable;
             $table->string('request');
             $table->string('error');
             $table->timestamps();

@@ -55,23 +55,14 @@ if (! function_exists('sqlLog')) {
     }
 }
 
-if (! function_exists('getStatusLabel')) {
-    function getStatusLabel($status){
-        switch($status){
-            case 0:
-                $value = 'default';
-            break;
-            case 1:
-                $value = 'success';
-            break;
-            case 2:
-                $value = 'danger';
-            break;
-            default:
-                $value = 'default';
-            break;
+if (! function_exists('generateRandomPassword')) {
+    function generateRandomPassword($status){
+        $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        $password = '';
+        for ($ii = 0; $ii < $wordCount; $ii++) {
+            $password .= $characters[rand(0, strlen($characters) - 1)];
         }
-        return $value;
+        return $password;
     }
 }
 

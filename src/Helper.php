@@ -56,7 +56,7 @@ if (! function_exists('sqlLog')) {
 }
 
 if (! function_exists('generateRandomPassword')) {
-    function generateRandomPassword($status){
+    function generateRandomPassword($wordCount){
         $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         $password = '';
         for ($ii = 0; $ii < $wordCount; $ii++) {

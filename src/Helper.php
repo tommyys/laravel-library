@@ -31,7 +31,7 @@ if (! function_exists('trans')) {
             }
         }
 
-        return app('translator')->trans($key, $replace, $locale);
+        return app('translator')->get($key, $replace, $locale);
     }
 }
 

@@ -17,7 +17,6 @@ class ActionLog extends Model
 
         $useragent = $request->server('HTTP_USER_AGENT');
         if(empty($useragent)) {
-            //Error prevent for user qhh3106
             $useragent = 'NO USER AGENT';
         }
 

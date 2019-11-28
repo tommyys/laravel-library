@@ -32,13 +32,18 @@ class ActionLog extends Model
             }
             $input .= $keyname.'=>'.$value.',';
         }
-
         $log = self::create([
             'ip'=> $ip,
             'user_agent' => $useragent,
             'function' => $request->url(),
             'input' => $input,
         ]);
+
+        $user = auth()->user();
+        if($user){
+            $log->user_id = $user->id;
+            $log->save();
+        }
         return $log;
     }
 

@@ -101,7 +101,7 @@ if (! function_exists('roundDownDecimal')) {
         $number = str_replace(".", $dec_point, $number);
 
         $splitNum = explode($dec_point, $number);
-        $splitNum[0] = preg_replace("/\B(?=(\d{3})+(?!\d))/g", $thousands_point, $splitNum[0]);
+        $splitNum[0] = preg_replace("/\B(?=(\d{3})+(?!\d))/", $thousands_point, $splitNum[0]);
         $number = join($splitNum, $dec_point);
 
         return $number;

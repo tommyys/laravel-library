@@ -94,7 +94,7 @@ if (! function_exists('roundDownDecimal')) {
             return "0.00";
         }
 
-        $tens = pow(10, decimals);
+        $tens = pow(10, $decimals);
         $number = floor($number * $tens) / $tens;
         $number = number_format($number, $decimals);
 
@@ -102,7 +102,7 @@ if (! function_exists('roundDownDecimal')) {
 
         $splitNum = explode($dec_point, $number);
         $splitNum[0] = preg_replace("/\B(?=(\d{3})+(?!\d))/g", $thousands_point, $splitNum[0]);
-        $number = $splitNum.$dec_point;
+        $number = join($splitNum, $dec_point);
 
         return $number;
     }

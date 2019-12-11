@@ -151,3 +151,13 @@ Output:
 ```sql
 select * from `action_log` where `user_id` = "123"
 ```
+
+##### roundDownDecimal($number, $decimals = 2, $dec_point = '.', $thousands_point = ',')
+This helper function works like number_format. except that it does not round up the decimals.
+
+Example:
+```php
+echo roundDownDecimal(200.1779, 2); #returns 200.17
+echo roundDownDecimal(200.175,2); #returns 200.17
+echo roundDownDecimal(200.172,2); #returns 200.17
+```

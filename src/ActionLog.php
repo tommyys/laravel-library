@@ -12,8 +12,7 @@ class ActionLog extends Model
 
     protected $guarded = [];
 
-    public static function createRecord($request, $user=null){
-        $input = "";
+    public static function createRecord($request){
 
         $useragent = $request->server('HTTP_USER_AGENT');
         if(empty($useragent)) {
@@ -26,21 +25,25 @@ class ActionLog extends Model
             $ip = $_SERVER["HTTP_CF_CONNECTING_IP"];
         }
 
-        $input = implode_recur($request->all());
-
+        $input = '';
+        foreach($request->all() as $keyname=>$value){
+            if(is_array($value)){
+                $value = implode(" || ", $value);
+            }
+            $input .= $keyname.'=>'.$value.',';
+        }
         $log = self::create([
             'ip'=> $ip,
             'user_agent' => $useragent,
             'function' => $request->url(),
             'input' => $input,
         ]);
-        if(auth()->check()){
-            if(!$user){
-                $user = auth()->user();
-            }
-            $log->update(['user_id' => $user->id]);
-        }
 
+        $user = auth()->user();
+        if($user){
+            $log->user_id = $user->id;
+            $log->save();
+        }
         return $log;
     }
 

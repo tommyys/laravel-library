@@ -14,10 +14,10 @@ class CreateActionLogTable extends Migration
     public function up()
     {
         Schema::create('action_log', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('ip');
-            $table->string('user_agent');
+            $table->text('user_agent');
             $table->text('function');
             $table->text('input');
             $table->timestamps();

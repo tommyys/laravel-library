@@ -13,7 +13,7 @@ use Log;
 
 class Telegram {
 
-    public static function notification($message, $chatID){
+    public static function notification($message, $chatID=null){
         if(!$chatID){
             $chatID = env('TELEGRAM_NOTI_GROUP');
         }

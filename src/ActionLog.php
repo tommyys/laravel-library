@@ -43,7 +43,7 @@ class ActionLog extends Model
         return $log;
     }
 
-    public static function check30sGap($request){
+    public static function actionGap($request, $seconds = 10){
         if(env('APP_ENV') == "local"){
             return true;
         }
@@ -55,7 +55,7 @@ class ActionLog extends Model
 
         $action = self::where('ip', $ip)
                     ->where('function', $request->url())
-                    ->where('created_at', '>=', date('Y-m-d H:i:s', strtotime("-30 seconds")))
+                    ->where('created_at', '>=', date('Y-m-d H:i:s', strtotime("-$seconds seconds")))
                     ->get();
 	
         if(sizeof($action) > 1){

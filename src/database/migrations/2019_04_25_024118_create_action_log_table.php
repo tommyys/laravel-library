@@ -15,7 +15,7 @@ class CreateActionLogTable extends Migration
     {
         Schema::create('action_log', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->default(0);
             $table->string('ip');
             $table->string('user_agent');
             $table->text('function');

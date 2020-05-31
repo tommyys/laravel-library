@@ -15,7 +15,6 @@ class CreateActionLogTable extends Migration
     {
         Schema::create('action_log', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->increments('id');
             $table->unsignedBigInteger('user_id')->default(0);
             $table->string('ip');
             $table->text('user_agent');

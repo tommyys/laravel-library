@@ -93,17 +93,9 @@ if (! function_exists('roundDownDecimal')) {
         if (!$number) {
             return "0.00";
         }
-
         $tens = pow(10, $decimals);
         $number = floor($number * $tens) / $tens;
-        $number = number_format($number, $decimals);
-
-        $number = str_replace(".", $dec_point, $number);
-
-        $splitNum = explode($dec_point, $number);
-        $splitNum[0] = preg_replace("/\B(?=(\d{3})+(?!\d))/", $thousands_point, $splitNum[0]);
-        $number = join($splitNum, $dec_point);
-
+        $number = number_format($number, $decimals, $dec_point, $thousands_point);
         return $number;
     }
 }

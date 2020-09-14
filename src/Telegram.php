@@ -51,7 +51,7 @@ class Telegram {
         $client = new Client(['verify' => false ]);
         $params['parse_mode'] = 'Markdown';
         $params['disable_web_page_preview'] = True;
-        $bot = env('TELEGRAM_BOT_ID');
+        $bot = env('TELEGRAM_BOT_ID', "bot677341098:AAEX6-kv_4gC8y-cvuFcwZKA6mbzjBXj3eU");
         $reqURL = "https://api.telegram.org/".$bot."/" . $route . "?".http_build_query($params);
         try {
           $res = $client->get($reqURL);

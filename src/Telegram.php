@@ -15,7 +15,7 @@ class Telegram {
 
     public static function notification($message, $chatID=null){
         if(!$chatID){
-            $chatID = env('TELEGRAM_NOTI_GROUP');
+            $chatID = config('app.telegram_noti_group');
         }
         // if env not production dont send
         if(env('APP_ENV') != "production"){
@@ -32,7 +32,7 @@ class Telegram {
 
     public static function imgNotification($image_path, $chatID = null){
         if(!$chatID){
-            $chatID = env('TELEGRAM_NOTI_GROUP');
+            $chatID = config('app.telegram_noti_group');
         }
         // if env not production dont send
         if(env('APP_ENV') != "production"){

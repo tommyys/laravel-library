@@ -18,7 +18,7 @@ class Telegram {
             $chatID = config('app.telegram_noti_group');
         }
         // if env not production dont send
-        if(config('app.env') == 'production'){
+        if(config('app.env') != 'production'){
             return false;
         };
 
@@ -35,7 +35,7 @@ class Telegram {
             $chatID = config('app.telegram_noti_group');
         }
         // if env not production dont send
-        if(config('app.env') == 'production'){
+        if(config('app.env') != 'production'){
             return false;
         };
 
